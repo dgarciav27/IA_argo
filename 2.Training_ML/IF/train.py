@@ -72,12 +72,11 @@ OCEANS = {
 
 MLFLOW_DIR = "/home/drgarcia/Argo_ml_code/ML_flow"
 
-# MLflow: a single shared tracking URI, but a separate EXPERIMENT
-# per ocean (so each ocean is kept separate in the MLflow UI)
+# MLflow, single shared tracking URI, but a separate experiment per ocean 
 mlflow.set_tracking_uri(f"sqlite:///{MLFLOW_DIR}/mlflow.db")
 
 
-# WRAPPER: IsolationForest -> "0=Good / 1=Bad" interface
+# WRAPPER: IsolationForest: "0=Good / 1=Bad" interface
 class IsolationForestF1(BaseEstimator, ClassifierMixin):
     """
     Wraps sklearn.ensemble.IsolationForest so that:
@@ -113,8 +112,7 @@ class IsolationForestF1(BaseEstimator, ClassifierMixin):
         return self
 
     def anomaly_score(self, X):
-        # score_samples: LOWER = more anomalous -> we invert the sign
-        # so that HIGHER = more anomalous (more "Bad"), same as probs[:,1]
+        # score_samples: LOWER = more anomalous -> we invert the sign so that HIGHER = more anomalous (more "Bad"), same as probs[:,1]
         return -self.model_.score_samples(X)
 
     def predict(self, X):
@@ -153,7 +151,7 @@ def train_one_ocean(ocean_name, cfg):
     n_good          = (y_train == 0).sum()
     n_bad           = (y_train == 1).sum()
     imbalance_ratio = n_good / n_bad
-    train_bad_frac  = float(y_train.mean())  # ~ expected contamination
+    train_bad_frac  = float(y_train.mean())  #  expected contamination
 
     print(f"  Train : {len(X_train):,} profiles | {y_train.mean():.2%} anomalous")
     print(f"  Val   : {len(X_val):,}   profiles | {y_val.mean():.2%} anomalous")
@@ -161,16 +159,15 @@ def train_one_ocean(ocean_name, cfg):
     print(f"  Features: {len(feature_cols)}  →  {feature_cols}")
     print(f"  Train bad fraction (~contamination): {train_bad_frac:.4f}")
 
-    # IsolationForest requires contamination in (0.0, 0.5]. When the "bad" class
-    # is the majority (as in Pacific), train_bad_frac can exceed 0.5 and blow up
-    # .fit(). Clip it to a safe range before using it as contamination anywhere.
+    # IsolationForest requires contamination in (0.0, 0.5]. When the bad class
+    # is the majority, train_bad_frac can exceed 0.5 and blow up.fit(). Clip it to a safe range before using it as contamination anywhere.
     baseline_contamination = float(np.clip(train_bad_frac, 1e-4, 0.5))
     if train_bad_frac > 0.5:
         print(f"  [WARNING] train_bad_frac={train_bad_frac:.4f} > 0.5 "
               f"(majority class is 'bad') — clipping contamination to "
               f"{baseline_contamination:.4f} for the baseline model")
 
-    # MLFLOW SETUP — dedicated experiment per ocean
+    # MLFLOW SETUP 
     experiment_name = f"IsolationForest_{ocean_name}_TemporalSplit"
     experiment      = mlflow.get_experiment_by_name(experiment_name)
     if experiment is None:
@@ -214,7 +211,7 @@ def train_one_ocean(ocean_name, cfg):
         bootstrap=False, contamination=baseline_contamination,
         random_state=42, n_jobs=4,
         )
-        # UNSUPERVISED fit: trained on full X_train (does not use y)
+        # UNSUPERVISED fit. We trained on full X_train (does not use y)
         if_base.fit(X_train)
 
         y_proba_base = if_base.anomaly_score(X_test)
@@ -236,8 +233,7 @@ def train_one_ocean(ocean_name, cfg):
         print("NOTE: IsolationForest fit() ignores y; scoring compares")
         print("      predict() (based on 'contamination') against true y.")
 
-        # contamination must be in (0, 0.5]; we search around the
-        # actual fraction of anomalies in train
+        # contamination must be in (0, 0.5]; we search around the actual fraction of anomalies in train
         cont_low  = float(np.clip(train_bad_frac * 0.4, 1e-4, 0.5))
         cont_high = float(np.clip(train_bad_frac * 2.5, cont_low + 1e-4, 0.5))
 
@@ -260,7 +256,7 @@ def train_one_ocean(ocean_name, cfg):
             n_candidates=40,
             min_resources="exhaust",
             cv=cv,
-            scoring="f1_macro",      # F1-macro, same as XGBoost/LightGBM
+            scoring="f1_macro",      
             n_jobs=1,
             verbose=2,
             random_state=42,
@@ -283,8 +279,7 @@ def train_one_ocean(ocean_name, cfg):
         print("=" * 70)
 
         scores_val = best_if_model.anomaly_score(X_val)
-        # sweep percentiles 5 to 95 of the score seen on val, instead of
-        # a fixed 0.05-0.95 grid (the score is not bounded between 0 and 1)
+        # sweep percentiles 5 to 95 of the score seen on val, instead of a fixed 0.05-0.95 grid (the score is not bounded between 0 and 1)
         percentiles = np.arange(5, 96, 5)
         thresholds  = np.percentile(scores_val, percentiles)
 
@@ -312,7 +307,7 @@ def train_one_ocean(ocean_name, cfg):
                             else df_th.loc[df_th["recall_anom"].idxmax()]
         best_f1_macro_row = df_th.loc[df_th["f1_macro"].idxmax()]
         chosen_threshold  = float(best_f1_macro_row["threshold"])
-        # USE THIS OPTION
+        # Another option:
         #chosen_threshold = float(best_recall90_row["threshold"])
         # Secondary candidates (logged, not used in final eval)
         best_f1_anom_row  = df_th.loc[df_th["f1_anomaly"].idxmax()]
