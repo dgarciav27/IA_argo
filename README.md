@@ -96,14 +96,19 @@ pip install -r requirements.txt
 ```
 pandas
 numpy
+seaborn
 scikit-learn
 xgboost
+xarray
 lightgbm
 torch          # pour CNN-1D / Transformer / Autoencodeur
 mlflow
 joblib
 pyarrow        # lecture/écriture parquet
 scipy
+cartopy
+xgboost
+netcdf4
 ```
 
 ### Données requises
