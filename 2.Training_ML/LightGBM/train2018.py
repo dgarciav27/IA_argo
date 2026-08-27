@@ -25,7 +25,7 @@ from sklearn.metrics import (classification_report, confusion_matrix,precision_s
 
 warnings.filterwarnings("ignore")
 
-# SET UP --
+# SET UP 
 #one ocean per input, each with its own preprocessing folder, output folder, and plot color
 OCEANS = {
     "Atlantic": {
@@ -47,10 +47,8 @@ OCEANS = {
 
 MLFLOW_DIR = "/home/drgarcia/Argo_ml_code/ML_flow"
 
-# # MLflow: a single shared tracking URI, but a separate EXPERIMENT
-# per ocean (so each ocean is kept separate in the MLflow UI)
+# MLflow: single shared tracking URI, but a separate experiment per ocean 
 mlflow.set_tracking_uri(f"sqlite:///{MLFLOW_DIR}/mlflow.db")
-
 
 def _load_split(preprocess_dir, feature_cols, name):
     df = pd.read_parquet(os.path.join(preprocess_dir, f"{name}.parquet"))
@@ -134,7 +132,7 @@ def train_one_ocean(ocean_name, cfg):
             device="cpu", verbosity=-1,
         )
 
-        # eval_set en VAL, NO EN TEST, para evitar leakage en early stopping
+        # eval_set in VAL, not in  TEST, avoid leakage in early stopping
         lgb_base.fit(
             X_train, y_train,
             eval_set=[(X_val, y_val)],
@@ -189,7 +187,7 @@ def train_one_ocean(ocean_name, cfg):
             n_candidates=40,
             min_resources="exhaust",
             cv=cv,
-            scoring="f1_macro",      # F1-macro, igual que XGBoost/RF
+            scoring="f1_macro",      # F1-macro, same as XGBoost, IF, RF
             n_jobs=1,
             verbose=2,
             random_state=42,
@@ -231,13 +229,12 @@ def train_one_ocean(ocean_name, cfg):
         df_th = pd.DataFrame(records)
         df_th["youden"] = df_th["tpr"] - df_th["fpr"]
 
-        # Primario: mejor F1-macro en val
+        # F1-macro in val
         high_recall_rows  = df_th[df_th["recall_anom"] >= 0.90].sort_values("precision_anom", ascending=False)
         best_recall90_row = high_recall_rows.iloc[0] if not high_recall_rows.empty \
                             else df_th.loc[df_th["recall_anom"].idxmax()]
         best_f1_macro_row = df_th.loc[df_th["f1_macro"].idxmax()]
         chosen_threshold  = float(best_f1_macro_row["threshold"])
-        # USA ESTA OPCIÓN
         #chosen_threshold = float(best_recall90_row["threshold"])
         # Candidatos secundarios (logueados, no usados en eval final)
         best_f1_anom_row  = df_th.loc[df_th["f1_anomaly"].idxmax()]
@@ -395,7 +392,7 @@ def train_one_ocean(ocean_name, cfg):
         _save("MLflow model log",
               lambda: mlflow.lightgbm.log_model(best_lgb_model, name="lgbm_optimized_model"))
 
-    # liberar memoria antes del siguiente oceano
+    # free memory before next ocean
     del X_train, y_train, X_val, y_val, X_test, y_test, df_test_meta
     gc.collect()
 
@@ -405,6 +402,5 @@ if __name__ == "__main__":
         train_one_ocean(ocean_name, cfg)
 
 
-    print("# Train completed for 3 oceans (Atlantic, Indian, Pacific)")
-    print("Results saved in ")
+    print("Train completed for 3 oceans (Atlantic, Indian, Pacific)")
  

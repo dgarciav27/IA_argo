@@ -51,8 +51,7 @@ OCEANS = {
 
 MLFLOW_DIR = "/home/drgarcia/Argo_ml_code/ML_flow"
 
-# MLflow: a single shared tracking URI, but a separate EXPERIMENT
-# per ocean (so each ocean is kept separate in the MLflow UI)
+# MLflow: a single shared tracking URI, but a separate experiment per ocean 
 mlflow.set_tracking_uri(f"sqlite:///{MLFLOW_DIR}/mlflow.db")
 
 

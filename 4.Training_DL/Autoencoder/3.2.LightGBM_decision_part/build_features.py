@@ -25,7 +25,7 @@ from scipy.interpolate import interp1d
 # CONFIG
 
 OCEANS = ["atlantic", "pacific", "indian"]
-YEARS_RANGES = ["2018_2022"]          # agrega más strings si tienes varios rangos
+YEARS_RANGES = ["2018_2022"]          
 
 BASE_PREPROC_DIR = "/work/drgarcia/Dataset/DL_datasets"
 BASE_RECON_DIR   = "/work/drgarcia/Models_and_results/Autoencoder"
@@ -174,9 +174,7 @@ class ProfileReconstructor(nn.Module):
         return self.decode(z), z
 
 
-# ============================================================================
-# Feature helpers (idénticos a tu Parte 1, sin depender de globals de ocean)
-# ============================================================================
+# Feature helpers -----
 
 def compute_profile_severity(meta):
     t = meta["PROFILE_TEMP_QC"].map(SEVERITY_ORDER)
@@ -527,9 +525,7 @@ def compute_spatial_neighbor_features(meta, X_temp, X_psal, mask, pressure_grid,
     }
 
 
-# ============================================================================
-# Build features para un (ocean, years_range)
-# ============================================================================
+# Build features for one (ocean, years_range) ---
 
 def build_features_for_ocean(ocean, years_range, woa_ds):
     paths = get_paths(ocean, years_range)
@@ -710,14 +706,14 @@ def build_features_for_ocean(ocean, years_range, woa_ds):
     extra_cols = [c for c in extra_cols if c in meta_test.columns]
     meta_test[extra_cols].to_parquet(os.path.join(paths["output_dir"], "test_meta_extra.parquet"), index=False)
 
-    # liberar memoria de GPU antes de pasar al siguiente ocean/years_range
+    # free memory before next oceanyears_range
     del model
     if DEVICE.type == "cuda":
         torch.cuda.empty_cache()
 
     return paths
 
-# MAIN — loop sobre oceans x years_range
+# MAIN loop over ocean years range
 def main():
     print("Loading WOA23 climatology once (reused across oceans/years)...")
     woa_ds = load_woa_climatology(WOA_DIR)
@@ -734,8 +730,7 @@ def main():
                 print(f"\n ERROR en {ocean}/{years_range}: {e}")
                 continue
 
-    print("\nListo. Los parquet de cada ocean/years_range quedaron en su output_dir "
-          "(mismo patrón que usa 02_train_lgbm.py para leerlos).")
+    print("\nReady c:")
 
 
 if __name__ == "__main__":

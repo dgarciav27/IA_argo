@@ -379,5 +379,5 @@ if __name__ == "__main__":
     for ocean_name, cfg in OCEANS.items():
         train_one_ocean(ocean_name, cfg)
 
-    print("# Train completed for 3 oceans (Atlantic, Indian, Pacific)")
+    print("Train completed for 3 oceans (Atlantic, Indian, Pacific)")
     print("Results saved in each ocean's model_dir (see OCEANS config)")

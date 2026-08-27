@@ -6,7 +6,7 @@ It's built on top of the (already trained) profile reconstructor.
 It consumes what the reconstructor already produced:
     - reconstructor_metrics.pkl  (per-profile RMSE_temp / RMSE_psal per split)
 and combines them into a single anomaly score, picks a decision threshold
-on the VALIDATION set, and reports standard classification metrics.
+on the VAL set, and reports standard classification metrics.
 
 --------------------
 Runs the pipeline independently for each ocean basin
@@ -61,7 +61,7 @@ OCEANS = {
     },
 }
 
-# Top-level dir where the cross-ocean summary is saved
+# dir where the cross-ocean summary is saved
 SUMMARY_DIR = f"/work/drgarcia/Models_and_results/Autoencoder/reconstructor_alloceans_{YEARS_RANGE}"
 os.makedirs(SUMMARY_DIR, exist_ok=True)
 
@@ -73,8 +73,7 @@ PERCENTILE = 99.0  # only used if THRESHOLD_STRATEGY == "percentile_val_normal"
 N_THRESHOLD_CANDIDATES = 500  # grid size for the f1_macro search
 
 
-# Helpers
-
+# Helpers ---
 def load_labels_and_severity(preproc_dir, name):
     meta = pd.read_parquet(os.path.join(preproc_dir, f"{name}_meta.parquet"))
     labels = meta["is_bad"].values.astype(np.int8)
@@ -176,8 +175,7 @@ def run_for_ocean(ocean_name, preproc_dir, output_dir):
     assert len(labels_val)   == len(rmse_t_val),   f"[{ocean_name}] val: labels/rmse length mismatch"
     assert len(labels_test)  == len(rmse_t_test),  f"[{ocean_name}] test: labels/rmse length mismatch"
 
-    # 2. Build a single anomaly score per profile — normalized on THIS ocean's
-    #    own train-normal distribution (never mixed with other oceans)
+    # 2. Build a single anomaly score per profile, normalized on this ocean's own train-normal distribution (never mixed with other oceans)
     idx_normal_train = (labels_train == 0)
     mu_t = np.nanmean(rmse_t_train[idx_normal_train]); sd_t = np.nanstd(rmse_t_train[idx_normal_train]) + 1e-8
     mu_s = np.nanmean(rmse_s_train[idx_normal_train]); sd_s = np.nanstd(rmse_s_train[idx_normal_train]) + 1e-8
@@ -191,8 +189,7 @@ def run_for_ocean(ocean_name, preproc_dir, output_dir):
     score_test,  labels_test_c,  sev_test_c  = clean(score_test,  labels_test,  sev_test)
 
     #  Diagnostic: does temp-only or psal-only discriminate better than
-    #     the combined score? If one channel's AUC is much higher than the
-    #     combined one, the sum is diluting signal from the stronger channel.
+    #     the combined score? If one channel's AUC is much higher than the combined one, the sum is diluting signal from the stronger channel.
     rmse_t_val_ok = rmse_t_val[~np.isnan(rmse_t_val)]
     rmse_s_val_ok = rmse_s_val[~np.isnan(rmse_s_val)]
     labels_val_t = labels_val[~np.isnan(rmse_t_val)]
@@ -252,8 +249,7 @@ def run_for_ocean(ocean_name, preproc_dir, output_dir):
         eval_results[split_name] = evaluate_split(split_name, score, y_true, severity, chosen_threshold)
 
     # Diagnostic: does detection improve a lot if we restrict "anomaly"
-    #     to severe QC flags only (D/E/F)? If yes, the reconstructor mostly
-    #     struggles with mild (A/B) cases?
+    #     to severe QC flags only (D/E/F)? If yes, the reconstructor mostly struggles with mild (A/B) cases?
     sev_severe_val = sev_val_c >= SEVERITY_ORDER["D"]
     mask_severe = (labels_val_c == 0) | sev_severe_val
     if mask_severe.sum() > 0 and len(np.unique(labels_val_c[mask_severe])) > 1:
@@ -336,7 +332,7 @@ if __name__ == "__main__":
     for ocean_name, cfg in OCEANS.items():
         all_results[ocean_name] = run_for_ocean(ocean_name, cfg["preproc_dir"], cfg["output_dir"])
 
-    # Cross-ocean summary (comparison only — thresholds/scores stay per-ocean)
+    # Cross-ocean summary (comparison only, thresholds and scores stay per-ocean)
     summary_rows = []
     for ocean_name, res in all_results.items():
         test_report = res["eval"]["test"]["classification_report"]

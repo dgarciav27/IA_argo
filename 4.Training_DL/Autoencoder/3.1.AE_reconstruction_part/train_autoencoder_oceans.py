@@ -59,7 +59,7 @@ OCEAN_CONFIGS = {
 # MLflow config
 MLFLOW_DIR = "/home/drgarcia/Argo_ml_code/ML_flow"
 EXPERIMENT_NAME = "AutoEncoder_Profile_Reconstructor_Oceans_2021_2025"
-MLFLOW_LOG_RETRIES = 5          # retries on sqlite "database is locked"
+MLFLOW_LOG_RETRIES = 5          
 MLFLOW_RETRY_SLEEP_S = 2.0
 
 # Shared hyperparameters (same across oceans; kept as module-level
@@ -102,9 +102,8 @@ def mlf_log_artifact(path):
     mlflow_log_with_retry(mlflow.log_artifact, path)
 
 
-# ------------------------------------------------------------------
-# Model (identical to single-ocean version)
-# ------------------------------------------------------------------
+
+# --- Model ---
 class ProfileDataset(Dataset):
     def __init__(self, profiles, target, mask, labels):
         self.profiles = torch.from_numpy(profiles)

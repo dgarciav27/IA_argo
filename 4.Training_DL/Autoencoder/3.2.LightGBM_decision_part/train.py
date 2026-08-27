@@ -1,24 +1,17 @@
 """
-02_train_lgbm.py
+train_lgbm
 
 Entraîne LightGBM comme classificateur d'anomalies Argo en utilisant les caractéristiques
 générées par 01_build_features.py (erreur de reconstruction de l'auto-encodeur + caractéristiques
 supplémentaires : résidus WOA, dérive, voisin, inversion de densité, résidu T-S, etc.).
 
-Ce script NE relance PAS l'auto-encodeur ni ne reconstruit les caractéristiques :
-il lit directement les fichiers parquet que 01_build_features.py a déjà enregistrés dans
-`output_dir` (même modèle pour chaque océan/plage d'années).
+- Sélection des caractéristiques:
 
-Sélection des caractéristiques
-
-Au lieu d'utiliser toutes les caractéristiques manuellement, un LGBM exploratoire est entraîné
-avec TOUTES les colonnes disponibles, le 'gain' de chacune est mesuré, et le
+Un LGBM exploratoire est entraîné avec toutes les colonnes disponibles, le 'gain' de chacune est mesuré, et le
 sous-ensemble minimum accumulant `FEATURE_GAIN_THRESHOLD` (ex. 0.90 = 90%) de l'importance totale
 est automatiquement sélectionné, avec un seuil minimum `MIN_FEATURES` au cas où le gain
 serait trop concentré sur peu de caractéristiques.
 
-Utilisation :
-    python 02_train_lgbm.py
 """
 
 import os
@@ -33,7 +26,7 @@ from scipy.stats import randint, uniform
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold
-from sklearn.experimental import enable_halving_search_cv  # noqa: F401 (active HalvingRandomSearchCV)
+from sklearn.experimental import enable_halving_search_cv  
 from sklearn.model_selection import HalvingRandomSearchCV
 from sklearn.metrics import (
     precision_recall_curve, roc_curve, roc_auc_score, average_precision_score,
@@ -41,7 +34,6 @@ from sklearn.metrics import (
 )
 
 # CONFIGURATION
-
 OCEANS = ["atlantic", "pacific", "indian"]
 YEARS_RANGES = ["2018_2022"]
 
@@ -55,7 +47,7 @@ FEATURE_GAIN_THRESHOLD = 0.90   # 0.90 = 90% de l'importance cumulée. Essayer a
 MIN_FEATURES = 10               # seuil minimum, au cas où le gain serait très concentré
 
 # Méthode pour choisir le seuil final de classification
-CHOSEN_THRESHOLD_METHOD = "f1"  # "f1" | "youden" | "recall90"
+CHOSEN_THRESHOLD_METHOD = "f1"  # "f1" , "youden" , "recall90"
 TARGET_RECALL = 0.90            # utilisé uniquement si CHOSEN_THRESHOLD_METHOD == "recall90"
 
 SEARCH_SCORING = "average_precision"
@@ -90,7 +82,6 @@ def get_paths(ocean, years_range):
 
 
 # Chargement des données (déjà construites par 01_build_features.py)
-
 def load_data_for_ocean(ocean, years_range):
     paths = get_paths(ocean, years_range)
     output_dir = paths["output_dir"]
@@ -110,7 +101,6 @@ def load_data_for_ocean(ocean, years_range):
 
 
 # Sélection des caractéristiques par gain cumulé
-
 def select_features_by_cumulative_gain(model, feature_names, threshold=FEATURE_GAIN_THRESHOLD,
                                        min_features=MIN_FEATURES):
     """
@@ -158,7 +148,6 @@ def select_features_by_cumulative_gain(model, feature_names, threshold=FEATURE_G
 
 
 # Seuils et évaluation
-
 def best_f1_threshold(y_true, proba):
     prec, rec, thr = precision_recall_curve(y_true, proba)
     f1 = 2 * prec * rec / np.clip(prec + rec, 1e-12, None)
@@ -199,7 +188,6 @@ def evaluate(y_true, proba, threshold, label=""):
 
 
 # Entraînement par ocean/years_range
-
 def train_lgbm_for_ocean(ocean, years_range, df_train, df_val, df_test, df_test_meta_extra, ts_reg, paths):
     output_dir = paths["output_dir"]
 
@@ -224,7 +212,7 @@ def train_lgbm_for_ocean(ocean, years_range, df_train, df_val, df_test, df_test_
             "n_train": len(df_train), "n_val": len(df_val), "n_test": len(df_test),
         })
 
-        # 1) Ajustement exploratoire avec TOUTES les caractéristiques, uniquement pour mesurer le gain
+        # 1) Ajustement exploratoire avec toutes les caractéristiques, uniquement pour mesurer le gain
         print(f"\n [{ocean}] Ajustement exploratoire (toutes les caractéristiques) pour mesurer le gain ")
         clf_explore = lgb.LGBMClassifier(
             n_estimators=500, random_state=SEED, n_jobs=4,
@@ -391,7 +379,7 @@ def train_lgbm_for_ocean(ocean, years_range, df_train, df_val, df_test, df_test_
         }
 
 
-# PRINCIPAL — boucle sur oceans x years_range
+# MAIN boucle sur oceans x years_range
 
 def main():
     os.makedirs(MLFLOW_DIR, exist_ok=True)
