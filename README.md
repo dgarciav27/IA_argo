@@ -147,7 +147,7 @@ Le notebook **`Plots/comparison_dl_ml_multiocean.ipynb`** centralise la comparai
 
 ## Suivi des expériences (MLflow)
 
-Les entraînements des modèles ML (Random Forest, XGBoost, LightGBM) sont journalisés automatiquement dans MLflow (paramètres, métriques, modèle). Pour visualiser les expériences :
+Les entraînements des modèles sont journalisés automatiquement dans MLflow (paramètres, métriques, modèle). Pour visualiser les expériences :
 
 ```bash
 mlflow ui --backend-store-uri sqlite:///<chemin_vers_votre_mlflow.db>
