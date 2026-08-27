@@ -1,9 +1,8 @@
-# IA_argo — Application de l'IA au contrôle qualité des données Argo
+# Application de l'IA au contrôle qualité des données Argo
 
-Ce dépôt contient le code développé dans le cadre d'un stage portant sur l'application de méthodes d'apprentissage automatique (Machine Learning) et d'apprentissage profond (Deep Learning) au contrôle qualité automatique des profils de flotteurs **Argo** (données océanographiques : température, salinité, pression), sur trois bassins océaniques (Atlantique, Indien, Pacifique) et sur la période 2018–2022.
+Ce dépôt contient le code développé dans le cadre d'un stage portant sur l'application de méthodes d'apprentissage automatique (Machine Learning) et d'apprentissage profond (Deep Learning) au contrôle qualité automatique des profils de flotteurs Argo (données océanographiques : température, salinité, pression), sur trois bassins océaniques (Atlantique, Indien, Pacifique) et sur la période 2018–2022.
 
-L'objectif est de pré-filtrer automatiquement les profils suspects (anomalies) afin d'assister les experts scientifiques dans la chaîne de contrôle qualité, en réduisant le temps de traitement manuel des données du GDAC (Global Data Assembly Center).
-
+L’objectif est d’identifier automatiquement les profils anormaux  afin d'assister les experts scientifiques dans la chaîne de contrôle qualité.
 ## Sommaire
 
 - [Contexte](#contexte)
@@ -18,7 +17,7 @@ L'objectif est de pré-filtrer automatiquement les profils suspects (anomalies) 
 
 ## Contexte
 
-Le réseau Argo déploie des flotteurs autonomes qui mesurent en continu la température, la salinité et la pression des océans. Chaque profil doit passer un contrôle qualité (QC) avant diffusion. Ce projet explore si des modèles d'IA peuvent détecter automatiquement les profils anormaux (`is_bad = 1`) à partir de variables dérivées des profils verticaux, en complément (et non en remplacement) du contrôle qualité expert existant.
+Le réseau Argo déploie des flotteurs autonomes qui mesurent en continu la température, la salinité et la pression des océans. Chaque profil doit passer un contrôle qualité (QC) avant diffusion. Ce projet explore si des modèles d'IA peuvent détecter automatiquement les profils anormaux (`is_bad = 1`) à partir de variables dérivées des profils verticaux, en complément du contrôle qualité expert existant.
 
 Le problème est traité comme une **classification binaire déséquilibrée** (profils valides vs. anormaux), avec un split **temporel** (train/val/test) pour éviter toute fuite d'information (data leakage) entre périodes.
 
@@ -34,19 +33,18 @@ Chaque modèle est entraîné **indépendamment par bassin océanique** (Atlanti
 
 ## Résultats principaux
 
-Évaluation sur la classe **Anomalies** (jeu de test), moyenne des trois bassins :
+Évaluation sur le jeu de test, avec une moyenne calculée sur les trois bassins océaniques (Atlantique, Indien et Pacifique).
+| Modèle | F1-score | ROC-AUC | Youden J |
+|---|---:|---:|---:|
+| **LightGBM** | **83.2 %** | **90.1 %** | **66.2 %** |
+| XGBoost | 83.1 % | **90.2 %** | 65.8 % |
+| Random Forest | 82.8 % | 89.9 % | 65.6 % |
+| CNN-1D | 73.2 % | 81.1 % | 46.4 % |
+| Autoencoder + LightGBM | 68.5 % | 76.4 % | 37.2 % |
+| Transformer | 66.6 % | 71.7 % | 33.6 % |
+| Isolation Forest | 56.7 % | 58.6 % | 14.4 % |
 
-| Modèle | F1 Anomalies | ROC-AUC | Youden J | Temps d'entraînement relatif |
-|---|---|---|---|---|
-| **LightGBM** | **0.810** | 0.901 | **0.662** | **1x (référence, le plus rapide)** |
-| XGBoost | 0.807 | **0.902** | 0.658 | ~1.2x |
-| Random Forest | 0.807 | 0.899 | 0.656 | ~15x |
-| CNN-1D | 0.698 | 0.811 | 0.464 | — |
-| Autoencodeur + LightGBM | 0.690 | 0.764 | 0.372 | — |
-| Transformer | 0.637 | 0.717 | 0.336 | — |
-| Isolation Forest | 0.505 | 0.586 | 0.144 | — |
-
-**LightGBM est retenu comme modèle de référence** : performances quasi-équivalentes à XGBoost et Random Forest, mais avec un temps d'entraînement significativement inférieur (jusqu'à 15x plus rapide que Random Forest à hyperparamètres fixes), un critère déterminant pour l'intégration dans une chaîne de traitement automatisée à grande échelle.
+**LightGBM est retenu comme modèle de référence** : performances quasi-équivalentes à XGBoost et Random Forest.
 
 Les modèles à base d'arbres de décision (ML supervisé) surpassent nettement les approches de Deep Learning testées et l'approche non supervisée, tout en affichant une performance stable entre eux.
 
@@ -74,7 +72,6 @@ IA_argo/
 │   ├── autoencoder_plots.ipynb
 │   ├── comparison_dl_ml_multiocean.ipynb
 │   └── dataset_plots_2018.ipynb
-├── benchmark_models_real.py            # Benchmark comparatif de vitesse d'entraînement (RF/XGB/LGBM)
 ├── requirements.txt                    # Dépendances Python
 └── README.md
 ```
@@ -139,11 +136,10 @@ Les trois bassins (Atlantique, Indien, Pacifique) sont généralement entraîné
 
 Pour chaque modèle et chaque bassin, les scripts sauvegardent typiquement :
 - le modèle entraîné (`.pkl`)
-- un rapport de classification (baseline + optimisé)
-- une analyse du seuil de décision (F1, rappel, précision, Youden J par seuil)
+- un rapport de classification 
 - les résultats de la recherche d'hyperparamètres (pour les modèles ML)
 - les prédictions sur le jeu de test
-- les données nécessaires à la génération de graphiques (courbes ROC, importance des variables, etc.), utilisées ensuite dans les notebooks du dossier `Plots/`
+- les données nécessaires à la génération de graphiques, utilisées ensuite dans les notebooks du dossier `Plots/`
 
 ### 4. Visualisation et comparaison des modèles
 
@@ -157,17 +153,7 @@ Les entraînements des modèles ML (Random Forest, XGBoost, LightGBM) sont journ
 mlflow ui --backend-store-uri sqlite:///<chemin_vers_votre_mlflow.db>
 ```
 
-Puis ouvrir [http://localhost:5000](http://localhost:5000). Chaque bassin océanique dispose de sa propre expérience MLflow (ex. `XGBoost_Atlantic_2018_2022_TemporalSplit`), permettant de comparer les runs entre eux.
-
-## Benchmark de vitesse d'entraînement
-
-Le script `benchmark_models_real.py` compare Random Forest, XGBoost et LightGBM à **hyperparamètres strictement identiques** (mêmes nombre d'arbres, profondeur, cœurs CPU) sur les données réelles des trois bassins, afin de mesurer objectivement le temps d'entraînement de chaque architecture.
-
-```bash
-python benchmark_models_real.py
-```
-
-Résultat : LightGBM et XGBoost entraînent respectivement ~15x et ~12x plus vite que Random Forest sur ce jeu de données, sans perte de performance prédictive (voir [Résultats principaux](#résultats-principaux)).
+Puis ouvrir [http://localhost:5000](http://localhost:5000). 
 
 ## Auteur
 
