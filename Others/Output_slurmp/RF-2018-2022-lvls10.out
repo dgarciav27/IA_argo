@@ -1,0 +1,984 @@
+
+######################################################################
+#  OCEANO: Atlantic
+######################################################################
+  Train : 139,114 profiles | 24.73% anomalous
+  Val   : 46,113   profiles | 32.04% anomalous
+  Test  : 43,650  profiles | 32.49% anomalous
+  Features: 24  :  ['TEMP_max', 'TEMP_min', 'TEMP_mean', 'TEMP_std', 'TEMP_range', 'TEMP_max_grad', 'TEMP_mean_grad', 'TEMP_grad_std', 'PSAL_max', 'PSAL_min', 'PSAL_mean', 'PSAL_std', 'PSAL_range', 'PSAL_max_grad', 'PSAL_mean_grad', 'PSAL_grad_std', 'PRES_max', 'PRES_min', 'PRES_mean', 'PRES_std', 'PRES_range', 'PRES_max_grad', 'PRES_mean_grad', 'PRES_grad_std']
+
+Experiment 'RF_Atlantic_2018_2022_TimeSplit_Dmode' created (id=62)
+
+======================================================================
+Baseline RF (100 trees, default threshold 0.5)
+======================================================================
+  Baseline ROC-AUC (test) : 0.8626
+  Baseline F1-macro (test): 0.7891
+
+======================================================================
+HalvingRandomSearchCV — scoring=f1_macro  (CV on train only)
+======================================================================
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 4
+min_resources_: 5152
+max_resources_: 139114
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 30
+n_resources: 5152
+Fitting 5 folds for each of 30 candidates, totalling 150 fits
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  15.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  11.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   9.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  13.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  10.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   7.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   9.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  20.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  41.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  21.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  59.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.7min
+----------
+iter: 1
+n_candidates: 10
+n_resources: 15456
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+----------
+iter: 2
+n_candidates: 4
+n_resources: 46368
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   9.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   6.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   8.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  10.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   6.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   5.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  10.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   6.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   5.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  24.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  53.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 2.7min
+----------
+iter: 3
+n_candidates: 2
+n_resources: 139104
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   4.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   5.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  11.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  13.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  12.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   6.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  11.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   7.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  11.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   4.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   6.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  20.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  20.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  19.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  40.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 3.9min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  11.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  10.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  12.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  11.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   7.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   8.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   3.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   8.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   5.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  22.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  36.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  24.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.4min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 2.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   4.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  11.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   7.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   5.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  10.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  13.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   5.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  12.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   6.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   7.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   5.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  20.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  55.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 2.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   6.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   8.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   8.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  26.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   6.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  12.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   6.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   7.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   5.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  20.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  43.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 2.3min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 2.4min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   3.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   2.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   4.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  12.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   8.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=  10.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  10.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  10.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  10.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  10.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  11.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  29.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  45.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  52.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 5.4min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  14.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  15.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  16.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  10.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   9.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  30.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  55.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  44.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 6.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  26.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   8.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  21.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   9.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   6.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  23.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  37.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  21.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  48.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 3.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 6.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  15.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   9.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  12.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  20.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   6.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=  10.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   5.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  23.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 7.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   8.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   5.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  13.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   8.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   9.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  12.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  10.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   8.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  20.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  57.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 2.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 8.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   4.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  13.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   6.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   8.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  28.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   7.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   7.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  20.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  42.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  33.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 3.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 8.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  16.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  12.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  12.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   7.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   8.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   5.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   7.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  20.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 1.4min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 3.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 8.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   4.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  16.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  15.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  14.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  15.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   7.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   4.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   7.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   7.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  20.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.2min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 3.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 8.9min
+
+Best F1-macro (CV on train): 0.8913
+
+======================================================================
+Threshold tuning on VALIDATION set
+======================================================================
+  Best F1-macro  threshold (val): 0.40  → f1_macro=0.8204  recall_anom=0.7046
+  Best F1-anomaly threshold (val): 0.40
+  Best Youden   threshold (val): 0.35
+  Best recall≥90 threshold (val): 0.15
+
+======================================================================
+Final evaluation on TEST  (threshold=0.40 from val)
+======================================================================
+
+BASELINE  (test, threshold=0.5)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.8204    0.9698    0.8889     29466
+         Bad     0.8991    0.5590    0.6894     14184
+
+    accuracy                         0.8363     43650
+   macro avg     0.8598    0.7644    0.7891     43650
+weighted avg     0.8460    0.8363    0.8241     43650
+
+
+OPTIMIZED  (test, threshold=0.40 tuned on val, scoring=f1_macro)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.8599    0.9112    0.8848     29466
+         Bad     0.7893    0.6916    0.7373     14184
+
+    accuracy                         0.8398     43650
+   macro avg     0.8246    0.8014    0.8110     43650
+weighted avg     0.8370    0.8398    0.8368     43650
+
+
+======================================================================
+Saving artifacts
+======================================================================
+  - Model
+  - Plot bundle
+  - Test results parquet
+  - Threshold info
+  - Best params JSON
+  - HP search CSV
+  - Threshold CSV
+  - Classification report
+
+######################################################################
+#  OCEANO: Indian
+######################################################################
+  Train : 88,992 profiles | 39.10% anomalous
+  Val   : 26,795   profiles | 49.19% anomalous
+  Test  : 22,780  profiles | 51.48% anomalous
+  Features: 24  :  ['TEMP_max', 'TEMP_min', 'TEMP_mean', 'TEMP_std', 'TEMP_range', 'TEMP_max_grad', 'TEMP_mean_grad', 'TEMP_grad_std', 'PSAL_max', 'PSAL_min', 'PSAL_mean', 'PSAL_std', 'PSAL_range', 'PSAL_max_grad', 'PSAL_mean_grad', 'PSAL_grad_std', 'PRES_max', 'PRES_min', 'PRES_mean', 'PRES_std', 'PRES_range', 'PRES_max_grad', 'PRES_mean_grad', 'PRES_grad_std']
+
+Experiment 'RF_Indian_2018_2022_TimeSplit_Dmode' created (id=63)
+
+======================================================================
+Baseline RF (100 trees, default threshold 0.5)
+======================================================================
+  Baseline ROC-AUC (test) : 0.9022
+  Baseline F1-macro (test): 0.8286
+
+======================================================================
+HalvingRandomSearchCV — scoring=f1_macro  (CV on train only)
+======================================================================
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 4
+min_resources_: 3296
+max_resources_: 88992
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 30
+n_resources: 3296
+Fitting 5 folds for each of 30 candidates, totalling 150 fits
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  12.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   6.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  14.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  21.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=  10.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  20.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  29.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  45.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 3.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 9.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   1.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   1.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   1.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   1.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   5.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   3.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   5.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   5.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   6.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   4.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  36.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  14.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  23.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.4min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   2.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  18.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  46.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.3min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   5.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=   5.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   4.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   6.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   3.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   3.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   3.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   3.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  14.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  21.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  25.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   2.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  18.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  35.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  27.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  59.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  17.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  15.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   7.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  22.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   8.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  12.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   8.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  20.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  29.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  27.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  52.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 3.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 8.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   2.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   1.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   1.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   1.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   5.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   3.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   5.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   5.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   5.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   3.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   3.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  46.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  36.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 2.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   6.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   5.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  11.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   7.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   4.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   3.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  15.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  13.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  27.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  12.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.6min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   5.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   5.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   2.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   6.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   4.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   5.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   4.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   3.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  13.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  10.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  16.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  21.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   6.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   4.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   7.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   8.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   4.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   2.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   3.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   4.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  32.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  46.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   1.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   1.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   4.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   5.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   4.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   7.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   5.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   3.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   3.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   3.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  20.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  37.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  16.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=   9.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   7.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   3.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   3.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  19.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  13.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  21.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  21.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  59.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.4min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   5.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   8.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  22.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  22.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  36.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   6.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   6.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   3.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   3.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  20.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  13.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  21.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  12.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 2.9min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   3.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  10.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   3.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   3.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   4.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   2.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  31.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  48.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 3.0min
+----------
+iter: 1
+n_candidates: 10
+n_resources: 9888
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+----------
+iter: 2
+n_candidates: 4
+n_resources: 29664
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 88992
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+
+Best F1-macro (CV on train): 0.9122
+
+======================================================================
+Threshold tuning on VALIDATION set
+======================================================================
+  Best F1-macro  threshold (val): 0.45  → f1_macro=0.8919  recall_anom=0.8590
+  Best F1-anomaly threshold (val): 0.40
+  Best Youden   threshold (val): 0.45
+  Best recall≥90 threshold (val): 0.30
+
+======================================================================
+Final evaluation on TEST  (threshold=0.45 from val)
+======================================================================
+
+BASELINE  (test, threshold=0.5)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.7759    0.9109    0.8380     11052
+         Bad     0.8996    0.7521    0.8193     11728
+
+    accuracy                         0.8291     22780
+   macro avg     0.8377    0.8315    0.8286     22780
+weighted avg     0.8396    0.8291    0.8284     22780
+
+
+OPTIMIZED  (test, threshold=0.45 tuned on val, scoring=f1_macro)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.8048    0.8581    0.8306     11052
+         Bad     0.8574    0.8038    0.8297     11728
+
+    accuracy                         0.8302     22780
+   macro avg     0.8311    0.8310    0.8302     22780
+weighted avg     0.8319    0.8302    0.8301     22780
+
+
+======================================================================
+Saving artifacts
+======================================================================
+  - Model
+  - Plot bundle
+  - Test results parquet
+  - Threshold info
+  - Best params JSON
+  - HP search CSV
+  - Threshold CSV
+  - Classification report
+
+######################################################################
+#  OCEANO: Pacific
+######################################################################
+  Train : 220,940 profiles | 38.29% anomalous
+  Val   : 70,440   profiles | 50.93% anomalous
+  Test  : 69,598  profiles | 57.52% anomalous
+  Features: 24  :  ['TEMP_max', 'TEMP_min', 'TEMP_mean', 'TEMP_std', 'TEMP_range', 'TEMP_max_grad', 'TEMP_mean_grad', 'TEMP_grad_std', 'PSAL_max', 'PSAL_min', 'PSAL_mean', 'PSAL_std', 'PSAL_range', 'PSAL_max_grad', 'PSAL_mean_grad', 'PSAL_grad_std', 'PRES_max', 'PRES_min', 'PRES_mean', 'PRES_std', 'PRES_range', 'PRES_max_grad', 'PRES_mean_grad', 'PRES_grad_std']
+
+Experiment 'RF_Pacific_2018_2022_TimeSplit_Dmode' created (id=64)
+
+======================================================================
+Baseline RF (100 trees, default threshold 0.5)
+======================================================================
+  Baseline ROC-AUC (test) : 0.9151
+  Baseline F1-macro (test): 0.8345
+
+======================================================================
+HalvingRandomSearchCV — scoring=f1_macro  (CV on train only)
+======================================================================
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 4
+min_resources_: 8182
+max_resources_: 220940
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 30
+n_resources: 8182
+Fitting 5 folds for each of 30 candidates, totalling 150 fits
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   6.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   9.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   4.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   4.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  22.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  18.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  23.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 4.6min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  12.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  23.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  32.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  16.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  16.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   7.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  15.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=  10.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  26.9s
+----------
+iter: 1
+n_candidates: 10
+n_resources: 24546
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  18.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  21.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  12.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   8.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=  12.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  22.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  11.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  50.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 1.9min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 2.8min
+----------
+iter: 2
+n_candidates: 4
+n_resources: 73638
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=   4.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   4.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   3.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   5.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   5.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   3.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   3.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   3.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  13.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  18.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  27.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  16.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 3.2min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   4.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  14.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  11.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=  15.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  14.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   9.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  12.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  23.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  13.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=   8.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 3.2min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   9.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  11.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   9.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   8.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=  11.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  17.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  21.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   6.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=  13.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=  10.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=  53.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  28.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  25.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 4.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   7.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=   9.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   4.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   3.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   6.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   3.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  25.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  10.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  22.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  12.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 3.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  25.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=  11.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  23.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=  13.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  35.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   7.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=   5.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  12.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  39.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 2.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 4.7min
+----------
+iter: 3
+n_candidates: 2
+n_resources: 220914
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 3.9min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  14.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  18.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  32.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=  14.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   8.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=  11.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=  12.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  35.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 3.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 3.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 3.6min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  23.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  10.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=  14.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=  11.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  12.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   9.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=  10.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  21.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=  13.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  49.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 3.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 3.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=  20.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=  17.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  16.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   9.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  18.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=  14.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   9.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=  15.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=   9.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  35.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time= 1.4min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 2.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 4.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 8.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   8.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=  15.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  22.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=   7.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   6.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   9.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  10.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=   8.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=  11.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=   8.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=  15.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=  10.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 2.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 5.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 9.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  40.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  33.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  14.1s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=   9.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  13.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=  10.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   6.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  33.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 1.8min
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time= 4.4min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 9.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  17.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=   7.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  28.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  11.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=  19.5s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=  13.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time=  15.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=17, n_estimators=1000; total time=  10.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  32.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  58.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  46.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.7min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 4.1min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=10.6min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   5.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  26.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=  16.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  19.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=   9.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  16.6s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.8, min_impurity_decrease=0.001, min_samples_leaf=9, min_samples_split=14, n_estimators=1000; total time=   7.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=  12.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=6, min_samples_split=5, n_estimators=1000; total time=   7.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=50, max_features=0.5, max_samples=0.8, min_impurity_decrease=0.005, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   6.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=  10.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  29.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 1.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 5.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=13.5min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=13, n_estimators=1000; total time=  14.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  17.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=None, max_features=0.3, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=2, n_estimators=1000; total time=   9.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.7, min_impurity_decrease=0.001, min_samples_leaf=3, min_samples_split=8, n_estimators=1000; total time=   8.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  20.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  14.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  16.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  32.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 2.3min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.3min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 5.5min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=13.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  15.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  17.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  12.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.005, min_samples_leaf=5, min_samples_split=11, n_estimators=1000; total time=   6.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  29.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=  11.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  14.2s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  10.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time=  12.0s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=  32.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time= 2.7min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 5.2min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=14.2min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=   5.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  15.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=7, min_samples_split=10, n_estimators=1000; total time=   9.6s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=50, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=2, min_samples_split=10, n_estimators=1000; total time=   7.0s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=2, min_samples_split=13, n_estimators=1000; total time=  16.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=10, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=12, n_estimators=1000; total time=  10.5s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=10, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=1, min_samples_split=17, n_estimators=1000; total time=  32.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=8, n_estimators=1000; total time=  10.3s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=   9.1s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   4.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  16.2s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=  33.9s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=20, max_features=0.3, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=18, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 5.0min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 9.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=30, max_features=0.3, max_samples=None, min_impurity_decrease=0.005, min_samples_leaf=6, min_samples_split=3, n_estimators=1000; total time=   5.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time=  23.9s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=30, max_features=log2, max_samples=0.6, min_impurity_decrease=0.001, min_samples_leaf=8, min_samples_split=5, n_estimators=1000; total time=   8.4s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=50, max_features=log2, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=8, min_samples_split=17, n_estimators=1000; total time=   8.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=16, n_estimators=1000; total time=  21.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=15, n_estimators=1000; total time=  14.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=7, min_samples_split=3, n_estimators=1000; total time=  17.3s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=11, n_estimators=1000; total time=   6.8s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=20, max_features=log2, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=7, min_samples_split=6, n_estimators=1000; total time=   8.4s
+[CV] END bootstrap=True, class_weight=balanced, criterion=gini, max_depth=30, max_features=sqrt, max_samples=None, min_impurity_decrease=0.001, min_samples_leaf=6, min_samples_split=12, n_estimators=1000; total time=  14.8s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=gini, max_depth=10, max_features=0.5, max_samples=0.7, min_impurity_decrease=0.0, min_samples_leaf=9, min_samples_split=19, n_estimators=1000; total time= 1.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  43.7s
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.001, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time= 1.1min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=None, max_features=0.5, max_samples=0.6, min_impurity_decrease=0.0, min_samples_leaf=3, min_samples_split=13, n_estimators=1000; total time= 6.0min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=14.5min
+[CV] END bootstrap=True, class_weight=balanced, criterion=entropy, max_depth=None, max_features=0.3, max_samples=0.8, min_impurity_decrease=0.0, min_samples_leaf=5, min_samples_split=8, n_estimators=1000; total time=  49.7s
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 1.8min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time= 5.9min
+[CV] END bootstrap=True, class_weight=balanced_subsample, criterion=entropy, max_depth=20, max_features=0.5, max_samples=0.9, min_impurity_decrease=0.0, min_samples_leaf=1, min_samples_split=13, n_estimators=1000; total time=14.6min
+
+Best F1-macro (CV on train): 0.9304
+
+======================================================================
+Threshold tuning on VALIDATION set
+======================================================================
+  Best F1-macro  threshold (val): 0.40  → f1_macro=0.8930  recall_anom=0.8482
+  Best F1-anomaly threshold (val): 0.35
+  Best Youden   threshold (val): 0.40
+  Best recall≥90 threshold (val): 0.20
+
+======================================================================
+Final evaluation on TEST  (threshold=0.40 from val)
+======================================================================
+
+BASELINE  (test, threshold=0.5)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.7387    0.9451    0.8293     29565
+         Bad     0.9489    0.7532    0.8398     40033
+
+    accuracy                         0.8347     69598
+   macro avg     0.8438    0.8491    0.8345     69598
+weighted avg     0.8596    0.8347    0.8353     69598
+
+
+OPTIMIZED  (test, threshold=0.40 tuned on val, scoring=f1_macro)
+======================================================================
+              precision    recall  f1-score   support
+
+        Good     0.7709    0.9002    0.8306     29565
+         Bad     0.9158    0.8025    0.8554     40033
+
+    accuracy                         0.8440     69598
+   macro avg     0.8434    0.8513    0.8430     69598
+weighted avg     0.8543    0.8440    0.8449     69598
+
+
+======================================================================
+Saving artifacts
+======================================================================
+  - Model
+  - Plot bundle
+  - Test results parquet
+  - Threshold info
+  - Best params JSON
+  - HP search CSV
+  - Threshold CSV
+  - Classification report
+# Train completed for 3 oceans (Atlantic, Indian, Pacific)
+Results saved in each ocean's model_dir (see OCEANS config)
+Done c:
