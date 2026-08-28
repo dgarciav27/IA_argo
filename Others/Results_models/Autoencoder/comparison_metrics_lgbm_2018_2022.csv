@@ -1,4 +1,0 @@
-Océan,Precision-macro,Recall-macro,F1-macro,Precision-Anomalie,Recall-Anomalie,F1-Anomalie,FPR,Accuracy,ROC-AUC,AP,Youden_Index,N Caractéristiques,Seuil Choisi
-Atlantique,0.737,0.731,0.734,0.651,0.624,0.637,0.161,0.769,0.802,0.745,0.463,37,0.467
-Pacifique,0.66,0.658,0.659,0.707,0.722,0.714,0.405,0.668,0.722,0.791,0.317,30,0.341
-Indien,0.686,0.667,0.662,0.642,0.819,0.72,0.485,0.672,0.769,0.805,0.335,36,0.301
