@@ -1,0 +1,7 @@
+RAPPORT GLOBAL - EVALUATION DES 3 OCEANS
+======================================================================
+
+     Ocean  RMSE TEMP Normal (degC)  RMSE TEMP Anomalie (degC)  RMSE PSAL Normal (PSU)  RMSE PSAL Anomalie (PSU)
+Atlantique                   0.1787                     0.9908                  0.0555                    1.4128
+ Pacifique                   0.2871                     0.4402                  0.0756                    0.2252
+    Indien                   0.3339                     1.7416                  0.0517                    0.8113

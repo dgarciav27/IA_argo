@@ -1,0 +1,41 @@
+======================================================================
+RAPPORT DE METRIQUES - OCEAN PACIFIQUE
+======================================================================
+
+[ SPLIT: ENTRAINEMENT ]
+- RMSE TEMPERATURE global (tous profils) : 0.3560 degC
+- RMSE SALINITE global (tous profils)    : 0.1580 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.2446              2.8483                 0.6232
+Temperature Anomalie  degC        0.5356              2.7806                 0.6949
+   Salinite   Normal   PSU        0.0546              0.3086                 0.0824
+   Salinite Anomalie   PSU        0.3248              0.9650                 0.1899
+
+[ SPLIT: VALIDATION ]
+- RMSE TEMPERATURE global (tous profils) : 0.3529 degC
+- RMSE SALINITE global (tous profils)    : 0.1394 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.2618              2.7394                 0.6560
+Temperature Anomalie  degC        0.4406              2.6385                 0.6491
+   Salinite   Normal   PSU        0.0660              0.4317                 0.0815
+   Salinite Anomalie   PSU        0.2101              1.1375                 0.1256
+
+[ SPLIT: TEST ]
+- RMSE TEMPERATURE global (tous profils) : 0.3752 degC
+- RMSE SALINITE global (tous profils)    : 0.1617 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.2871              2.8399                 0.7283
+Temperature Anomalie  degC        0.4402              2.5240                 0.6284
+   Salinite   Normal   PSU        0.0756              0.5083                 0.1009
+   Salinite Anomalie   PSU        0.2252              1.3500                 0.1118
+
+- Meilleure MSE de validation (profils normaux) : 0.05354
+
+----------------------------------------------------------------------
+Detection d'anomalie par seuil de RMSE (moyenne + 3 ecarts-types, test)
+----------------------------------------------------------------------
+  VP=2847  FP=595  FN=37186  VN=28970
+  Precision=0.827  Rappel=0.071

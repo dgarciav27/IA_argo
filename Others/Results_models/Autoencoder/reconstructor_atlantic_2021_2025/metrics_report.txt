@@ -1,0 +1,75 @@
+========================================================================
+RAPPORT D'ÉVALUATION DU MODÈLE
+========================================================================
+Checkpoint du modèle              : /work/drgarcia/Models_and_results/Autoencoder/reconstructor_atlantic_2021_2025/best_reconstructor.pth
+Taille du jeu de test             : 15924 profils
+  is_bad=0 (normal, données brutes)  : 11458
+  is_bad=1 (anormal, données brutes) : 4466
+
+  Sévérité A (officiel Argo)    : 11804
+  Sévérité B (officiel Argo)    : 2463
+  Sévérité C (officiel Argo)    : 37
+  Sévérité D (officiel Argo)    : 7
+  Sévérité E (officiel Argo)    : 3
+  Sévérité F (officiel Argo)    : 1610
+
+------------------------------------------------------------------------
+RMSE par profil selon is_bad (label brut, moyenne +/- écart-type)
+------------------------------------------------------------------------
+Classe                   TEMP moy.    TEMP std   PSAL moy.    PSAL std
+Normal (is_bad=0)           0.1845      0.2510      0.0430      0.0795
+Anormal (is_bad=1)          1.5078      2.8663      3.0537      6.7721
+
+------------------------------------------------------------------------
+Ratio RMSE Anomalie (is_bad=1) / Normal (plus élevé = meilleure séparation)
+------------------------------------------------------------------------
+  TEMP: 8.17x    PSAL: 71.07x
+
+------------------------------------------------------------------------
+RMSE par tranche de profondeur (jeu de test, issu des métriques d'entraînement)
+------------------------------------------------------------------------
+   band   class  mse_mean     n
+surface  normal  0.003982 11457
+surface anomaly  9.866885  4455
+    mid  normal  0.001028 11318
+    mid anomaly  8.079995  4413
+   deep  normal  0.003098 10959
+   deep anomaly 37.351345  4047
+
+------------------------------------------------------------------------
+RMSE par profil selon la sévérité du QC officiel Argo (A-F, indépendant de is_bad)
+------------------------------------------------------------------------
+severity     n  pct_of_test  temp_rmse_mean  temp_rmse_std  psal_rmse_mean  psal_rmse_std
+       A 11804        74.13        0.182872       0.246989        0.041782       0.067791
+       B  2463        15.47        0.561674       2.005770        0.738455       3.827295
+       C    37         0.23        0.249268       0.267646        0.118001       0.228168
+       D     7         0.04        0.419051       0.334248        0.269918       0.263787
+       E     3         0.02        0.122594       0.048244        0.083386       0.043412
+       F  1610        10.11        3.294285       3.412524        7.352404       8.721850
+
+------------------------------------------------------------------------
+Ratio RMSE Sévérité F / Sévérité A (plus élevé = meilleure séparation)
+------------------------------------------------------------------------
+  TEMP: 18.01x    PSAL: 175.97x
+
+------------------------------------------------------------------------
+Croisement sévérité x is_bad (diagnostic de chevauchement entre critères)
+------------------------------------------------------------------------
+is_bad        0     1
+severity             
+NA        11458  4466
+
+------------------------------------------------------------------------
+Variance expliquée (R²), profils normaux
+------------------------------------------------------------------------
+  TEMP : R² moyen = 0.9962  |  R² le plus bas = 0.9868 à 1576 dbar
+  PSAL : R² moyen = 0.9751  |  R² le plus bas = 0.5026 à 1596 dbar
+
+------------------------------------------------------------------------
+Carte de prédiction : matrice de confusion basée sur un seuil (jeu de test)
+------------------------------------------------------------------------
+  Seuil RMSE TEMP (moyenne normale + 3*std) : 0.9375
+  Seuil RMSE PSAL (moyenne normale + 3*std) : 0.2814
+  VP=1090  FP=47  FN=3376  VN=11411
+  Précision=0.959  Rappel=0.244
+

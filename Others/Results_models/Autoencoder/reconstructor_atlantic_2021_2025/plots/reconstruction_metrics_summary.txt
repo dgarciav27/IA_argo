@@ -1,0 +1,78 @@
+=================================================================
+         OVERALL & DETAILED RECONSTRUCTION METRICS
+=================================================================
+
+[ SPLIT: TRAIN ]
+- OVERALL TEMP RMSE (All Profiles) : 0.5225 degC
+- OVERALL PSAL RMSE (All Profiles) : 0.5574 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencoder | Level-Mean  | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (degC)     | 0.1797      | 4.0441      | 0.7675     
+TEMP Anomaly (degC)    | 1.2263      | 3.8658      | 0.4807     
+PSAL Normal (PSU)      | 0.0459      | 0.9976      | 0.1460     
+PSAL Anomaly (PSU)     | 1.6079      | 3.4527      | 0.2885     
+
+[ SPLIT: VAL ]
+- OVERALL TEMP RMSE (All Profiles) : 0.6933 degC
+- OVERALL PSAL RMSE (All Profiles) : 0.9663 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencoder | Level-Mean  | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (degC)     | 0.1949      | 3.1524      | 0.5532     
+TEMP Anomaly (degC)    | 1.6938      | 3.7166      | 0.5126     
+PSAL Normal (PSU)      | 0.0464      | 0.6644      | 0.2192     
+PSAL Anomaly (PSU)     | 2.8130      | 5.5300      | 0.5187     
+
+[ SPLIT: TEST ]
+- OVERALL TEMP RMSE (All Profiles) : 0.5554 degC
+- OVERALL PSAL RMSE (All Profiles) : 0.8865 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencoder | Level-Mean  | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (degC)     | 0.1846      | 3.0483      | 0.5498     
+TEMP Anomaly (degC)    | 1.5078      | 3.6973      | 0.5539     
+PSAL Normal (PSU)      | 0.0429      | 0.5848      | 0.1316     
+PSAL Anomaly (PSU)     | 3.0536      | 5.4887      | 0.5884     
+
+=================================================================
+
+
+=================================================================
+     MÉTRIQUES DE RECONSTRUCTION GLOBALES ET DÉTAILLÉES
+=================================================================
+
+[ JEU : ENTRAÎNEMENT ]
+- RMSE TEMP GLOBALE (Tous profils) : 0.5225 °C
+- RMSE PSAL GLOBALE (Tous profils) : 0.5574 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencodeur | Moy. Niveau | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (°C)       | 0.1797      | 4.0441      | 0.7675     
+TEMP Anomalie (°C)     | 1.2263      | 3.8658      | 0.4807     
+PSAL Normal (PSU)      | 0.0459      | 0.9976      | 0.1460     
+PSAL Anomalie (PSU)    | 1.6079      | 3.4527      | 0.2885     
+
+[ JEU : VALIDATION ]
+- RMSE TEMP GLOBALE (Tous profils) : 0.6933 °C
+- RMSE PSAL GLOBALE (Tous profils) : 0.9663 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencodeur | Moy. Niveau | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (°C)       | 0.1949      | 3.1524      | 0.5532     
+TEMP Anomalie (°C)     | 1.6938      | 3.7166      | 0.5126     
+PSAL Normal (PSU)      | 0.0464      | 0.6644      | 0.2192     
+PSAL Anomalie (PSU)    | 2.8130      | 5.5300      | 0.5187     
+
+[ JEU : TEST ]
+- RMSE TEMP GLOBALE (Tous profils) : 0.5554 °C
+- RMSE PSAL GLOBALE (Tous profils) : 0.8865 PSU
+-----------------------------------------------------------------
+Variable / Type        | Autoencodeur | Moy. Niveau | Poly-Fit   
+-----------------------------------------------------------------
+TEMP Normal (°C)       | 0.1846      | 3.0483      | 0.5498     
+TEMP Anomalie (°C)     | 1.5078      | 3.6973      | 0.5539     
+PSAL Normal (PSU)      | 0.0429      | 0.5848      | 0.1316     
+PSAL Anomalie (PSU)    | 3.0536      | 5.4887      | 0.5884     
+
+=================================================================

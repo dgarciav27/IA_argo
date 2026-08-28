@@ -1,0 +1,35 @@
+======================================================================
+RAPPORT DE METRIQUES - OCEAN ATLANTIQUE
+======================================================================
+
+[ SPLIT: ENTRAINEMENT ]
+- RMSE TEMPERATURE global (tous profils) : 0.5225 degC
+- RMSE SALINITE global (tous profils)    : 0.5574 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.1797              4.0441                 0.7675
+Temperature Anomalie  degC        1.2263              3.8658                 0.4807
+   Salinite   Normal   PSU        0.0459              0.9976                 0.1460
+   Salinite Anomalie   PSU        1.6079              3.4527                 0.2885
+
+[ SPLIT: VALIDATION ]
+- RMSE TEMPERATURE global (tous profils) : 0.6933 degC
+- RMSE SALINITE global (tous profils)    : 0.9663 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.1949              3.1524                 0.5532
+Temperature Anomalie  degC        1.6938              3.7166                 0.5126
+   Salinite   Normal   PSU        0.0464              0.6644                 0.2192
+   Salinite Anomalie   PSU        2.8130              5.5300                 0.5187
+
+[ SPLIT: TEST ]
+- RMSE TEMPERATURE global (tous profils) : 0.5554 degC
+- RMSE SALINITE global (tous profils)    : 0.8865 PSU
+----------------------------------------------------------------------
+   Variable   Classe Unite  Autoencodeur  Moyenne par niveau  Ajustement polynomial
+Temperature   Normal  degC        0.1846              3.0483                 0.5498
+Temperature Anomalie  degC        1.5078              3.6973                 0.5539
+   Salinite   Normal   PSU        0.0429              0.5848                 0.1316
+   Salinite Anomalie   PSU        3.0536              5.4887                 0.5884
+
+- Meilleure MSE de validation (profils normaux) : 0.00669
