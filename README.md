@@ -34,15 +34,15 @@ Chaque modèle est entraîné **indépendamment par bassin océanique** (Atlanti
 ## Résultats principaux
 
 Évaluation sur le jeu de test, avec une moyenne calculée sur les trois bassins océaniques (Atlantique, Indien et Pacifique).
-| Modèle | F1-score | ROC-AUC | Youden J |
+| Modèle | F1-score | ROC-AUC | Accuracy |
 |---|---:|---:|---:|
-| **LightGBM** | **83.2 %** | **90.1 %** | **66.2 %** |
-| XGBoost | 83.1 % | **90.2 %** | 65.8 % |
-| Random Forest | 82.8 % | 89.9 % | 65.6 % |
-| CNN-1D | 73.2 % | 81.1 % | 46.4 % |
-| Autoencoder + LightGBM | 68.5 % | 76.4 % | 37.2 % |
-| Transformer | 66.6 % | 71.7 % | 33.6 % |
-| Isolation Forest | 56.7 % | 58.6 % | 14.4 % |
+| **LightGBM** | **83.2 %** | **90.1 %** | **84.3 %** |
+| XGBoost | 83.1 % | 90.1 % | 84.2 % |
+| Random Forest | 82.8 % | 89.9 % | 83.8 % |
+| CNN-1D | 73.2 % | 81.1 % | 74.7 % |
+| Autoencoder + LightGBM | 68.5 % | 76.4 % | 70.3 % |
+| Transformer | 66.6 % | 71.7 % | 67.9 % |
+| Isolation Forest | 56.7 % | 58.6 % | 60.9 % |
 
 **LightGBM est retenu comme modèle de référence** : performances quasi-équivalentes à XGBoost et Random Forest.
 
